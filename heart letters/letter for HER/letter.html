@@ -1,0 +1,3194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Little Story ❤️</title>
+
+    <!-- ==========================================
+         TAILWIND
+    =========================================== -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ==========================================
+         FONTS
+    =========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <!-- ==========================================
+         TAILWIND CONFIG
+    =========================================== -->
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: {
+
+                        romantic: [
+                            'Cormorant Garamond',
+                            'serif'
+                        ],
+
+                        sans: [
+                            'Inter',
+                            'sans-serif'
+                        ]
+
+                    },
+
+                    colors: {
+
+                        rose: {
+
+                            50: '#fff7fa',
+                            100: '#ffeef4',
+                            200: '#ffd9e6',
+                            300: '#ffb8ce',
+                            400: '#f88eaf',
+                            500: '#ed628d',
+                            600: '#d94372',
+                            700: '#b82e5c',
+                            800: '#962849',
+                            900: '#7d263f'
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+
+    <!-- ==========================================
+         CUSTOM CSS
+    =========================================== -->
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(255,255,255,.8),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(255,160,195,.35),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #ffd9e7,
+                    #fff0f5,
+                    #ffd0e1
+                );
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* ======================================
+           SIDEBAR
+        ======================================= */
+
+        .sidebar {
+
+            background:
+
+                linear-gradient(
+                    160deg,
+                    rgba(125,38,63,.98),
+                    rgba(184,46,92,.96)
+                );
+
+            backdrop-filter: blur(20px);
+
+        }
+
+
+        .nav-button {
+
+            transition:
+                all .3s ease;
+
+        }
+
+
+        .nav-button:hover {
+
+            background:
+                rgba(255,255,255,.12);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .nav-button.active {
+
+            background:
+                rgba(255,255,255,.18);
+
+            box-shadow:
+                inset 3px 0 #fff;
+
+        }
+
+
+        /* ======================================
+           MAIN CARDS
+        ======================================= */
+
+        .glass-card {
+
+            background:
+                rgba(255,255,255,.82);
+
+            backdrop-filter:
+                blur(16px);
+
+            border:
+                1px solid rgba(255,255,255,.8);
+
+            box-shadow:
+                0 25px 70px rgba(126,38,63,.14);
+
+        }
+
+
+        /* ======================================
+           FLOWERS
+        ======================================= */
+
+        .floating-flower {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            animation:
+                floatFlower 7s ease-in-out infinite;
+
+        }
+
+
+        @keyframes floatFlower {
+
+            0%,100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-20px)
+                    rotate(6deg);
+
+            }
+
+        }
+
+
+        /* ======================================
+           HEARTS
+        ======================================= */
+
+        .heart {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 9999;
+
+            animation:
+                riseHeart 4s ease-out forwards;
+
+        }
+
+
+        @keyframes riseHeart {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(.5);
+
+                opacity: 0;
+
+            }
+
+            10% {
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(-100vh)
+                    scale(1.2)
+                    rotate(30deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* ======================================
+           GARDEN
+        ======================================= */
+
+        .garden-flower {
+
+            cursor: pointer;
+
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .garden-flower:hover {
+
+            transform:
+                scale(1.25)
+                rotate(5deg);
+
+        }
+
+
+        /* ======================================
+           ENVELOPES
+        ======================================= */
+
+        .envelope {
+
+            cursor: pointer;
+
+            transition:
+                all .3s ease;
+
+        }
+
+
+        .envelope:hover {
+
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 20px 40px
+                rgba(126,38,63,.15);
+
+        }
+
+
+        /* ======================================
+           PHOTOS
+        ======================================= */
+
+        .photo-card {
+
+            transition:
+                transform .35s ease;
+
+        }
+
+
+        .photo-card:hover {
+
+            transform:
+                rotate(0deg)
+                scale(1.04);
+
+        }
+
+
+        /* ======================================
+           PAGE TRANSITIONS
+        ======================================= */
+
+        .section {
+
+            display: none;
+
+            animation:
+                fadeIn .5s ease;
+
+        }
+
+
+        .section.active {
+
+            display: block;
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* ======================================
+           MOBILE SIDEBAR
+        ======================================= */
+
+        #mobileSidebar {
+
+            transition:
+                transform .35s ease;
+
+        }
+
+
+        /* ======================================
+           TIMELINE
+        ======================================= */
+
+        .timeline {
+
+            border-left:
+                2px solid #f3a4bd;
+
+        }
+
+
+        /* ======================================
+           MEMORY MODAL
+        ======================================= */
+
+        #memoryModal {
+
+            transition:
+                opacity .3s ease;
+
+        }
+
+
+        /* ======================================
+           PIN OVERLAY + ANIMATIONS
+        ======================================= */
+
+        #pinOverlay {
+
+            backdrop-filter: blur(6px);
+
+        }
+
+
+        .pin-box .pin-input {
+
+            letter-spacing: .35rem;
+
+            border: 1px solid rgba(0,0,0,.06);
+
+            background: rgba(255,255,255,.95);
+
+        }
+
+
+        .pin-message {
+
+            min-height: 1.1rem;
+
+        }
+
+
+        @keyframes shake {
+
+            0% { transform: translateX(0); }
+
+            25% { transform: translateX(-6px); }
+
+            75% { transform: translateX(6px); }
+
+            100% { transform: translateX(0); }
+
+        }
+
+
+        .pin-input.shake {
+
+            animation: shake .35s;
+
+        }
+
+
+        .fade-out {
+
+            animation: overlayFadeOut .45s ease forwards;
+
+        }
+
+
+        @keyframes overlayFadeOut {
+
+            to {
+
+                opacity: 0;
+
+                visibility: hidden;
+
+                transform: translateY(-8px);
+
+            }
+
+        }
+
+
+        .fade-in-letter {
+
+            animation: fadeIn .7s ease forwards;
+
+        }
+
+
+        /* overlay visual polish */
+        .pin-box {
+            transform: translateY(0);
+            animation: pinEnter .6s cubic-bezier(.2,.9,.2,1);
+        }
+
+        @keyframes pinEnter {
+            from { transform: translateY(18px) scale(.98); opacity: 0 }
+            to { transform: translateY(0) scale(1); opacity: 1 }
+        }
+
+        #pinOverlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 15% 20%, rgba(255,240,245,0.06), transparent 8%),
+                              radial-gradient(circle at 80% 80%, rgba(255,200,220,0.04), transparent 12%);
+            pointer-events: none;
+        }
+
+        #pinSubmit { box-shadow: 0 10px 30px rgba(183,46,92,.18); }
+
+        #pinHint { opacity: .9 }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ============================================
+     FLOATING DECORATIONS
+============================================= -->
+
+<div class="floating-flower text-5xl top-8 right-8">
+    🌷
+</div>
+
+<div class="floating-flower text-6xl bottom-8 right-10"
+     style="animation-delay:-2s">
+    🌸
+</div>
+
+<div class="floating-flower text-5xl top-1/2 left-[330px]"
+     style="animation-delay:-4s">
+    🌷
+</div>
+
+
+
+<!-- ============================================
+     MOBILE OVERLAY
+============================================= -->
+
+<div id="overlay"
+     onclick="closeSidebar()"
+     class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden lg:hidden">
+</div>
+
+
+<!-- ============================================
+     PIN LOCK OVERLAY
+============================================= -->
+
+<div id="pinOverlay"
+     class="fixed inset-0 z-[200] flex items-center justify-center bg-[#2d1220]/70 backdrop-blur-sm">
+
+    <div class="pin-box w-[90%] max-w-md rounded-[2rem] bg-white/95 p-8 text-center shadow-2xl border border-rose-100">
+
+        <div class="text-5xl mb-4">🔒</div>
+
+        <h2 class="font-romantic text-4xl text-rose-800">Locked</h2>
+
+        <p id="pinHint" class="font-sans text-sm text-slate-500 mt-3">
+            Enter the 8-digit code to open the letter.
+        </p>
+
+        <div class="mt-6">
+            <input id="pinInput"
+                   type="password"
+                   inputmode="numeric"
+                   maxlength="8"
+                   placeholder="••••••••"
+                   class="pin-input w-full rounded-xl px-4 py-3 text-center text-2xl font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-rose-300">
+        </div>
+
+        <button id="pinSubmit"
+                class="mt-6 w-full bg-rose-700 text-white py-3 rounded-full font-sans text-sm hover:bg-rose-800 transition">
+            Unlock 💌
+        </button>
+
+        <p id="pinMessage" class="pin-message mt-4 text-sm text-rose-600"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ============================================
+     MOBILE SIDEBAR
+============================================= -->
+
+<aside id="mobileSidebar"
+       class="sidebar fixed left-0 top-0 h-full w-[300px] z-50
+              -translate-x-full lg:hidden text-white overflow-y-auto">
+
+    <div class="p-6">
+
+        <button onclick="closeSidebar()"
+                class="absolute right-5 top-5
+                       w-9 h-9 rounded-full
+                       bg-white/10">
+
+            ✕
+
+        </button>
+
+
+        <div class="text-center pt-4">
+
+            <div class="text-5xl">
+                🌷
+            </div>
+
+            <h1 class="font-romantic text-3xl mt-3">
+                Our Little Story
+            </h1>
+
+            <p class="font-sans text-xs text-white/60 mt-1">
+                Just you & me
+            </p>
+
+        </div>
+
+
+        <div id="mobileNavigation"
+             class="mt-8 space-y-2">
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ============================================
+     DESKTOP SIDEBAR
+============================================= -->
+
+<aside class="sidebar fixed left-0 top-0
+              w-[310px] h-screen z-30
+              hidden lg:block text-white
+              overflow-y-auto">
+
+    <div class="p-7">
+
+
+        <!-- SIDEBAR HEADER -->
+
+        <div class="text-center">
+
+            <div class="text-5xl">
+                🌷
+            </div>
+
+            <h1 class="font-romantic text-4xl mt-3">
+                Our Little Story
+            </h1>
+
+            <p class="font-sans text-xs
+                      tracking-[.25em]
+                      uppercase text-white/50 mt-2">
+
+                A story about us
+
+            </p>
+
+        </div>
+
+
+        <!-- HEART -->
+
+        <div class="text-center text-4xl my-7">
+            ❤️
+        </div>
+
+
+        <!-- ======================================
+             SIDEBAR NAVIGATION
+
+             ALL FIVE NEW FEATURES ARE HERE
+        ======================================= -->
+
+        <nav class="space-y-2">
+
+
+            <button onclick="showSection('letter',this)"
+                    class="nav-button active w-full
+                           flex items-center gap-4
+                           text-left rounded-xl
+                           px-4 py-3">
+
+                <span class="text-xl">
+                    💌
+                </span>
+
+                <span>
+
+                    <span class="block
+                                 font-sans text-sm
+                                 font-medium">
+
+                        Love Letter
+
+                    </span>
+
+                    <span class="block
+                                 text-xs text-white/45">
+
+                        From my heart
+
+                    </span>
+
+                </span>
+
+            </button>
+
+
+
+            <button onclick="showSection('story',this)"
+                    class="nav-button w-full
+                           flex items-center gap-4
+                           text-left rounded-xl
+                           px-4 py-3">
+
+                <span class="text-xl">
+                    🌷
+                </span>
+
+                <span>
+
+                    <span class="block
+                                 font-sans text-sm
+                                 font-medium">
+
+                        Our Story
+
+                    </span>
+
+                    <span class="block
+                                 text-xs text-white/45">
+
+                        Our journey together
+
+                    </span>
+
+                </span>
+
+            </button>
+
+
+
+            <button onclick="showSection('garden',this)"
+                    class="nav-button w-full
+                           flex items-center gap-4
+                           text-left rounded-xl
+                           px-4 py-3">
+
+                <span class="text-xl">
+                    🌹
+                </span>
+
+                <span>
+
+                    <span class="block
+                                 font-sans text-sm
+                                 font-medium">
+
+                        Our Garden
+
+                    </span>
+
+                    <span class="block
+                                 text-xs text-white/45">
+
+                        Click the flowers
+
+                    </span>
+
+                </span>
+
+            </button>
+
+
+
+            <button onclick="showSection('openwhen',this)"
+                    class="nav-button w-full
+                           flex items-center gap-4
+                           text-left rounded-xl
+                           px-4 py-3">
+
+                <span class="text-xl">
+                    💌
+                </span>
+
+                <span>
+
+                    <span class="block
+                                 font-sans text-sm
+                                 font-medium">
+
+                        Open When...
+
+                    </span>
+
+                    <span class="block
+                                 text-xs text-white/45">
+
+                        Little messages for you
+
+                    </span>
+
+                </span>
+
+            </button>
+
+
+
+            <button onclick="showSection('quiz',this)"
+                    class="nav-button w-full
+                           flex items-center gap-4
+                           text-left rounded-xl
+                           px-4 py-3">
+
+                <span class="text-xl">
+                    🎮
+                </span>
+
+                <span>
+
+                    <span class="block
+                                 font-sans text-sm
+                                 font-medium">
+
+                        Our Love Quiz
+
+                    </span>
+
+                    <span class="block
+                                 text-xs text-white/45">
+
+                        How well do you know us?
+
+                    </span>
+
+                </span>
+
+            </button>
+
+
+
+            <button onclick="showSection('photos',this)"
+                    class="nav-button w-full
+                           flex items-center gap-4
+                           text-left rounded-xl
+                           px-4 py-3">
+
+                <span class="text-xl">
+                    📸
+                </span>
+
+                <span>
+
+                    <span class="block
+                                 font-sans text-sm
+                                 font-medium">
+
+                        Our Photos
+
+                    </span>
+
+                    <span class="block
+                                 text-xs text-white/45">
+
+                        Our favorite moments
+
+                    </span>
+
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="text-center mt-10">
+
+            <p class="font-romantic text-xl text-white/70">
+                "You are my favorite story."
+            </p>
+
+            <div class="mt-3 text-white/40">
+                ♡ ♡ ♡
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ============================================
+     MAIN
+============================================= -->
+
+<main class="lg:ml-[310px]
+            min-h-screen relative z-10">
+
+
+    <!-- MOBILE HEADER -->
+
+    <header class="lg:hidden
+                   flex items-center justify-between
+                   px-5 py-4">
+
+        <div>
+
+            <p class="font-romantic
+                      text-2xl text-rose-800">
+
+                Our Little Story
+
+            </p>
+
+            <p class="font-sans
+                      text-[10px]
+                      uppercase
+                      tracking-widest
+                      text-rose-600">
+
+                Just you & me
+
+            </p>
+
+        </div>
+
+
+        <button onclick="openSidebar()"
+                class="w-11 h-11 rounded-full
+                       bg-rose-700 text-white
+                       shadow-lg">
+
+            ☰
+
+        </button>
+
+    </header>
+
+
+
+    <!-- ========================================
+         SECTION 1
+         LOVE LETTER
+    ========================================= -->
+
+    <section id="letter"
+             class="section active
+                    px-4 sm:px-8
+                    py-8 lg:py-16">
+
+        <div class="max-w-4xl mx-auto
+                    glass-card rounded-[2rem]
+                    px-6 sm:px-10 md:px-16
+                    py-12 md:py-16">
+
+
+            <div class="text-center">
+
+                <p class="font-sans
+                          text-xs tracking-[.3em]
+                          uppercase text-rose-500">
+
+                    A letter from my heart
+
+                </p>
+
+                <h1 class="font-romantic
+                           text-5xl sm:text-6xl
+                           text-rose-800
+                           mt-4">
+
+                    To My Princess  ❤️
+
+                </h1>
+
+                <div class="text-rose-400 mt-5">
+                    ─── 🌷 ───
+                </div>
+
+            </div>
+
+            <div class="text-center mt-6">
+
+                <input id="audioInput"
+                       type="file"
+                       accept="audio/*"
+                       class="hidden"
+                       onchange="loadAudioFile(event)">
+
+                <button id="audioBtn"
+                        onclick="toggleAudio()"
+                        class="bg-rose-700 hover:bg-rose-800 text-white px-4 py-2 rounded-full mr-3">
+
+                    Play Song 🎵
+
+                </button>
+
+                <button onclick="document.getElementById('audioInput').click()"
+                        class="bg-white/80 hover:bg-white text-rose-700 px-4 py-2 rounded-full">
+
+                    Upload Song
+
+                </button>
+
+                <p id="audioHint" class="text-xs text-slate-500 mt-2">
+                    Upload an MP3 (or other audio) to play a song. It will be saved locally.
+                </p>
+
+                <audio id="bgAudio" loop></audio>
+
+            </div>
+
+
+            <!-- EDIT YOUR LETTER -->
+
+            <div class="font-romantic
+                        text-xl md:text-2xl
+                        leading-[1.9]
+                        text-slate-700
+                        mt-12">
+
+
+                <p class="text-rose-800
+                          text-3xl font-semibold
+                          mb-7">
+
+                    My dearest love,
+
+                </p>
+
+
+                <p class="mb-7">
+
+                    I don't think words will ever truly
+                    be enough to explain what you mean
+                    to me, but I want to try anyway.
+
+                </p>
+
+
+                <p class="mb-7">
+
+                    Since you came into my life,
+                    ordinary moments somehow became
+                    extraordinary.
+
+                    Your smile, your laugh, your voice,
+                    and all the little things you do
+                    have become some of my favorite
+                    things in this world.
+
+                </p>
+
+
+                <p class="mb-7">
+
+                    I love the moments we share. 
+                    The big ones, the silly ones, The weird and funny moments, 
+                    the goofy pictures with silly faces
+                    and especially the quiet ones.Me being too serious ,you tryna tell me to live in the moment and live a little.
+                     The late night video call, Wifi acting up but we still tryna talk and laugh, 
+                     the way you always make me feel special and loved, the way you always make me 
+                     feel like I am the only one in the world that matters to you.
+                    <p> Our School days,the long stares across the classrooms, Us smiling at each other,
+                         the school breaks when we talk and walk, learning about each other,
+                          the way you always make me laugh,and stutter when I talk to you,
+                        the way you always look at me with those brown,beautiful eyes...
+                          Me waiting on you after school till your transport came to pick you up</p>
+                     
+
+                    Somehow, simply being beside you
+                    makes everything feel better even if its a lil while, sometimes hugs can be a lot impactful to me, especially coz of our LDR. 
+
+                </p>
+
+
+                <!-- EDIT THIS -->
+
+                <p class="mb-7">
+
+                    I love you more than words can say. 
+                    
+                    You know the saying "Actions speak louder than words" ? It's true, 
+                    and im willing to show you that I love you in every way possible, 
+                    and I will always be here for you, through the good times and the
+                     bad, through the ups and downs, through the laughter and the tears.
+                     I will always be here to support you, to encourage you, to lift you up when you're feeling down, and to celebrate with you when you're feeling on top of the world.
+                      I will always be here to listen to you, to understand you, and to love you unconditionally. 
+                      I will always be here to hold your hand, to walk beside you, provide emotional support,
+                     and to share this journey of life with you. I will always be here to make you smile, to make you laugh, and to make you feel loved every single day. 
+                     I will always be here for you, my love, my partner, my best friend, my soulmate. I will always be here for us.
+                    and I am so grateful for every moment we share together
+                    . You are my princess,my best friend, future wife, my partner, and my soulmate,my lil cute weirdo 
+                    and I can't wait to see what the future holds for us.
+
+                </p>
+                    <p class="mb-7"> 
+
+                        Even tho the saying is true I still believe that words weigh more than a gesture or action, 
+                        because they can express the depth of my feelings in a way that no action ever could,
+                         because i can pour my heart out in words, and that means everything to me.</p>
+
+                <p class="mb-7">
+
+                    If I could give you one thing in
+                    this world, I would give you the
+                    ability to see yourself through
+                    my eyes.
+
+                    Then you would finally understand
+                    just how beautiful, precious,
+                    and loved you truly are.
+
+                </p>
+
+
+                <p class="mb-7">
+
+                    And if I had the chance to choose
+                    you all over again...
+
+                </p>
+
+
+                <p class="text-center
+                          text-rose-700
+                          text-3xl
+                          font-semibold
+                          my-10">
+
+                    I would choose you every
+                    single time. Meaning if i was given the chance to live my life over again,
+                     i would choose you every time with no doubt in my mind,soul and spirit.
+                      I'm STUCK with YOU sthandwa sam ❤️
+
+                </p>
+
+
+                <div class="text-right mt-12">
+
+                    <p class="italic text-slate-500">
+                        Forever yours,
+                    </p>
+
+                    <!-- EDIT THIS -->
+
+                    <p class="text-rose-800
+                              text-3xl mt-2">
+
+                        Your handsome boy Lubo ♡
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="text-center mt-12">
+
+                <button onclick="makeHearts()"
+                        class="bg-rose-700
+                               hover:bg-rose-800
+                               text-white
+                               px-7 py-3
+                               rounded-full
+                               font-sans text-sm
+                               transition
+                               hover:-translate-y-1">
+
+                    Send some love ❤️
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 2
+         OUR STORY / TIMELINE
+    ========================================= -->
+
+    <section id="story"
+             class="section
+                    px-4 sm:px-8
+                    py-8 lg:py-16">
+
+        <div class="max-w-4xl mx-auto">
+
+
+            <div class="text-center mb-12">
+
+                <p class="font-sans
+                          text-xs uppercase
+                          tracking-[.3em]
+                          text-rose-500">
+
+                    Chapter One
+
+                </p>
+
+                <h2 class="font-romantic
+                           text-6xl text-rose-800 mt-3">
+
+                    Our Story 🌷
+
+                </h2>
+
+                <p class="font-romantic
+                          text-xl text-slate-500 mt-3">
+
+                    Every love story has a beginning.
+                    This one is ours.
+
+                </p>
+
+            </div>
+
+
+            <div class="glass-card rounded-[2rem]
+                        p-7 md:p-12">
+
+
+                <div class="timeline ml-4 pl-8 space-y-12">
+
+
+                    <!-- EDIT THIS -->
+
+                    <div class="relative">
+
+                        <div class="absolute
+                                    -left-[43px]
+                                    top-0
+                                    w-6 h-6
+                                    rounded-full
+                                    bg-rose-500
+                                    border-4
+                                    border-rose-100">
+
+                        </div>
+
+                        <p class="font-sans
+                                  text-xs
+                                  uppercase
+                                  tracking-widest
+                                  text-rose-500">
+
+                            The Beginning
+
+                        </p>
+
+                        <h3 class="font-romantic
+                                   text-3xl
+                                   text-rose-800
+                                   mt-1">
+
+                            The day we met
+
+                        </h3>
+
+                        <p class="font-romantic
+                                  text-xl
+                                  text-slate-600
+                                  mt-2">
+
+                            <!-- EDIT THIS -->
+
+                            UHM, I remember the first time we met, @ Home Affairs when I was there to get my ID and you were there to get your ID too, I saw you and I was like wow, this girl what is the coincedence of seeing Lunathi here, with  ur Mom, we only greeted so yeah.
+                             Then i started talking to you at school I honestly don't know where i got the confidence to hug you infront of 
+your friends bruh, but i did it. I was honestly shocked that you hugged me back, and not crashout I was like wow, this girl  is really nice, and I was like wow. 
+Then we started chatting on Instagram, I asked you out and suprisingly you said yes, even tho you ghosted me for a while, 
+but I was like okay, I will wait for you, and I did. Then we started talking again and the rest is history. 
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- EDIT THIS -->
+
+                    <div class="relative">
+
+                        <div class="absolute
+                                    -left-[43px]
+                                    top-0
+                                    w-6 h-6
+                                    rounded-full
+                                    bg-rose-500
+                                    border-4
+                                    border-rose-100">
+
+                        </div>
+
+                        <p class="font-sans
+                                  text-xs
+                                  uppercase
+                                  tracking-widest
+                                  text-rose-500">
+
+                            Chapter Two
+
+                        </p>
+
+                        <h3 class="font-romantic
+                                   text-3xl
+                                   text-rose-800
+                                   mt-1">
+
+                            Our first date
+
+                        </h3>
+
+                        <p class="font-romantic
+                                  text-xl
+                                  text-slate-600
+                                  mt-2">
+
+                            Well it wasn't really a date,
+                             leway uba imma take you out were go somewhere for the day and stuff but it felt like one. 
+                             I forgot what were doing at the mall but we were walking with Onela then
+                              I asked if you wanted Ice cream @ Mac'D s and you said yes, 
+                              then we went to Mac'D and got our Ice cream, then i bought Oreo ice cream for both of us and you sat down while i ordered ,
+                               you took pictures of me,then i set next to you,while we waited you smiled ( let me just say you have an AMAZING SMILE)
+                                then we went back to school. Suprisingly your transport mates said let me hop on then the driver agreed then i sat next to you and Onela you both were shocked that i finished my ice cream very quickly, and we talked and laughed the whole way home,
+                                 then we got to your house and you said bye and i said bye.
+
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- EDIT THIS -->
+
+                    <div class="relative">
+
+                        <div class="absolute
+                                    -left-[43px]
+                                    top-0
+                                    w-6 h-6
+                                    rounded-full
+                                    bg-rose-500
+                                    border-4
+                                    border-rose-100">
+
+                        </div>
+
+                        <p class="font-sans
+                                  text-xs
+                                  uppercase
+                                  tracking-widest
+                                  text-rose-500">
+
+                            A Favorite Memory
+
+                        </p>
+
+                        <h3 class="font-romantic
+                                   text-3xl
+                                   text-rose-800
+                                   mt-1">
+
+                            That unforgettable day
+
+                        </h3>
+
+                        <p class="font-romantic
+                                  text-xl
+                                  text-slate-600
+                                  mt-2">
+
+                            The unforgettable day for me was when I ask you out for the MD. 
+You know i was kinda nervous on doing the whole thing, setting up creating the  video,buying the stuff ect but i thought of you and how you'd feel being suprised by your boyfriend and how happy you'd be, and how much you'd love it,
+ and how much you'd appreciate it, and how much you'd love me for doing that for you, and how much you'd love me for being your boyfriend. 
+                            
+What made it unforgettable was you being suprised, your reaction,
+                            your cute smile and the way you were shocketh and
+                             suprised at the same time,
+                              and the way you said yes,
+                               and the way you were happy and excited, 
+                               and the way you were looking at me with
+                                those beautiful eyes of yours, and the 
+                                way you were smiling and laughing, and 
+                                the way you were being cute and adorable, and the way you were being yourself, 
+                                and the way you were being you. 
+
+                                To be honest tho it all wouldnt be possible without the friends i had Nyana (Austin played a huge role for accompanieng me to go to the mall), 
+                                ofc your friends too Onela,Indiphile and also others 
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- EDIT THIS -->
+
+                    <div class="relative">
+
+                        <div class="absolute
+                                    -left-[43px]
+                                    top-0
+                                    w-6 h-6
+                                    rounded-full
+                                    bg-rose-500
+                                    border-4
+                                    border-rose-100">
+
+                        </div>
+
+                        <p class="font-sans
+                                  text-xs
+                                  uppercase
+                                  tracking-widest
+                                  text-rose-500">
+
+                            Today
+
+                        </p>
+
+                        <h3 class="font-romantic
+                                   text-3xl
+                                   text-rose-800
+                                   mt-1">
+
+                            And here we are ❤️
+
+                        </h3>
+
+                        <p class="font-romantic
+                                  text-xl
+                                  text-slate-600
+                                  mt-2">
+
+                            Here we are,consumed by studies being far away from each other, 
+                            but still managing to make it work as much as we can, a true Long Distance Relationship, and I am so grateful for every moment we share together,
+                             and I can't wait to see what the future holds for us, what dances will we dance that will be trending on TikTok or on ur folder,
+                              what songs will we sing , what movies will we watch, what places will we go, what adventures will we have,
+                              and what memories will we make together. 
+,
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 3
+         OUR GARDEN
+    ========================================= -->
+
+    <section id="garden"
+             class="section
+                    px-4 sm:px-8
+                    py-8 lg:py-16">
+
+        <div class="max-w-4xl mx-auto">
+
+
+            <div class="text-center mb-10">
+
+                <p class="font-sans
+                          text-xs uppercase
+                          tracking-[.3em]
+                          text-rose-500">
+
+                    A garden full of memories
+
+                </p>
+
+                <h2 class="font-romantic
+                           text-6xl
+                           text-rose-800 mt-3">
+
+                    Our Garden 🌹
+
+                </h2>
+
+                <p class="font-romantic
+                          text-xl text-slate-500 mt-3">
+
+                    Every moment has something
+                    to tell you.
+
+                </p>
+
+            </div>
+
+
+            <div class="glass-card rounded-[2rem]
+                        p-8 md:p-14">
+
+
+                <div class="grid
+                            grid-cols-2
+                            md:grid-cols-3
+                            gap-8
+                            text-center">
+
+
+                    
+
+
+
+                    <!-- FLOWER 1 -->
+
+                    <button onclick="openMemory(
+                        'In person Moments',
+                        'Every time I think of us laughing together, my heart feels full. That kind of happiness is the one I want forever.',
+                        'Fav memory 2.jpg'
+                    )"
+                            class="garden-flower">
+
+                      <video
+    src="FIN.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="w-28 h-28 object-cover rounded-full mx-auto shadow-lg border-2 border-white">
+</video>
+
+                        <p class="font-romantic
+                                  text-xl
+                                  text-rose-800 mt-3">
+
+                             In person Moments
+
+                        </p>
+
+                    </button>
+
+
+
+                    <!-- FLOWER 2 -->
+
+                    <button onclick="openMemory(
+                        'Our LDR Moments',
+                        'I love how we make the distance feel smaller with our calls, texts, and video chats. Every moment we share is a treasure.',
+                        'Screenshot_2025-08-25-16-55-45-322_com.whatsapp.jpg'
+                    )"
+                            class="garden-flower">
+
+                        <video
+    src="LD M.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="w-28 h-28 object-cover rounded-full mx-auto shadow-lg border-2 border-white">
+</video>
+
+                        <p class="font-romantic
+                                  text-xl
+                                  text-rose-800 mt-3">
+
+                            Our LDR Moments
+
+                        </p>
+
+                    </button>
+
+
+
+                    <!-- FLOWER 3 -->
+
+                    <button onclick="openMemory(
+                        'Our Future',
+                        'I can already imagine us making beautiful memories together, walking into a future that feels full of love, peace, and adventure.',
+                        'IMG-20250905-WA0012.jpg'
+                    )"
+                            class="garden-flower">
+
+                        <video
+    src="FUTE.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="w-28 h-28 object-cover rounded-full mx-auto shadow-lg border-2 border-white">
+</video>
+
+                        <p class="font-romantic
+                                  text-xl
+                                  text-rose-800 mt-3">
+
+                            Our Future
+
+                        </p>
+
+                    </button>
+
+
+
+                  
+
+
+                </div>
+
+
+                <p class="text-center
+                          font-romantic
+                          text-xl
+                          text-slate-500
+                          mt-12">
+
+                    Click a flower 🌷
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 4
+         OPEN WHEN
+    ========================================= -->
+
+    <section id="openwhen"
+             class="section
+                    px-4 sm:px-8
+                    py-8 lg:py-16">
+
+        <div class="max-w-4xl mx-auto">
+
+
+            <div class="text-center mb-10">
+
+                <p class="font-sans
+                          text-xs uppercase
+                          tracking-[.3em]
+                          text-rose-500">
+
+                    Little messages for you
+
+                </p>
+
+                <h2 class="font-romantic
+                           text-6xl
+                           text-rose-800 mt-3">
+
+                    Open When... 💌
+
+                </h2>
+
+                <p class="font-romantic
+                          text-xl text-slate-500 mt-3">
+
+                    Pick an envelope.
+
+                </p>
+
+            </div>
+
+
+            <div class="grid
+                        sm:grid-cols-2
+                        gap-5">
+
+
+                <!-- ENVELOPE 1 -->
+
+                <button onclick="openMemory(
+                    'Open When You Miss Me',
+        'Hey babygirl , I miss you so much too! I know we are far away from each other but I want you to know that I am always thinking about you and I am always here for you.'
+                )"
+                        class="envelope glass-card
+                               rounded-3xl p-7 text-left">
+
+                    <div class="text-5xl">
+                        💌
+                    </div>
+
+                    <h3 class="font-romantic
+                               text-3xl
+                               text-rose-800 mt-4">
+
+                        Open when you miss me
+
+                    </h3>
+
+                    <p class="font-sans
+                              text-xs
+                              text-slate-400 mt-2">
+
+                        There's something waiting inside...
+
+                    </p>
+
+                </button>
+
+
+
+                <!-- ENVELOPE 2 -->
+
+                <button onclick="openMemory('Open When You Are Sad', 'Hey love, I know you are going through a tough time. I want you to remember that even on the heaviest days and hardest nights, your worth, your purpose, and your future are still secure. You do not have to carry everything by yourself, and it is completely okay to pause, breathe, and reset. Bright days are still ahead, and the strength you need for today is already inside you.\n\nHere are a few gentle reminders for your heart:\n\nRest in God\'s comfort: The Lord is near to the brokenhearted and saves the crushed in spirit. [Psalm 34:18]\n\nFind peace in your journey: For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future. [Jeremiah 29:11]\n\nRelease your worry: Cast all your anxiety on Him because He cares for you. [1 Peter 5:7]\n\nRenew your strength: Do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand. [Isaiah 41:10]')"
+                        class="envelope glass-card
+                               rounded-3xl p-7 text-left">
+
+                    <div class="text-5xl">
+                        💗
+                    </div>
+
+                    <h3 class="font-romantic
+                               text-3xl
+                               text-rose-800 mt-4">
+
+                        Open when you're sad
+
+                    </h3>
+
+                    <p class="font-sans
+                              text-xs
+                              text-slate-400 mt-2">
+
+                        A little reminder from me...
+
+                    </p>
+
+                </button>
+
+
+
+                <!-- ENVELOPE 3 -->
+
+                <button onclick='openMemory("Open When You Need A Smile", "Remember to give yourself permission to smile—not because everything is perfect, but because there is still so much light, beauty, and cause for joy right in front of you. A single moment of joy has a wonderful way of brightening the entire room around you.\n\nLet these verses bring a little extra sunshine to your day:\n\nA reminder of the power of joy: \"A joyful heart is good medicine, but a crushed spirit dries up the bones.\" [Proverbs 17:22]\n\nCelebrate the present moment: \"This is the day that the Lord has made; let us rejoice and be glad in it.\" [Psalm 118:24]\n\nFinding delight in light and hope: \"Light shines on the righteous and joy on the upright in heart.\" [Psalm 97:11]\n\nOverflowing with happiness: \"You have filled my heart with greater joy than when their grain and new wine abound.\" [Psalm 4:7]")'
+                        class="envelope glass-card
+                               rounded-3xl p-7 text-left">
+
+                    <div class="text-5xl">
+                        💖
+                    </div>
+
+                    <h3 class="font-romantic
+                               text-3xl
+                               text-rose-800 mt-4">
+
+                        Open when you need a smile
+
+                    </h3>
+
+                    <p class="font-sans
+                              text-xs
+                              text-slate-400 mt-2">
+
+                        I have something for you...
+
+                    </p>
+
+                </button>
+
+
+
+                <!-- ENVELOPE 4 -->
+
+                <button onclick='openMemory("Open When You Cannot Sleep", "Tonight, I just want you to let go of every heavy thought you are holding onto. I know your body feels uncomfortable right now, the cramps are making it hard to settle, and your mind is running in circles. But you do not have to figure everything out tonight, and you do not need to force yourself to sleep. Please remember to drink water and be gentle with yourself.\n\nJust close your eyes, take a deep, slow breath, and let your body soften into the mattress. Release the tension in your shoulders and let yourself rest. Whatever is worrying you can wait until tomorrow—right now, your only job is to be gentle with yourself. You are safe, you are so loved, and this pain and restlessness will pass. Before you sleep do not forget to say a prayer, and ask God to help you sleep and to take away the pain and discomfort. I love you so much, my princess.")'
+                        class="envelope glass-card
+                               rounded-3xl p-7 text-left">
+
+                    <div class="text-5xl">
+                        🌙
+                    </div>
+
+                    <h3 class="font-romantic
+                               text-3xl
+                               text-rose-800 mt-4">
+
+                        Open when you can't sleep
+
+                    </h3>
+
+                    <p class="font-sans
+                              text-xs
+                              text-slate-400 mt-2">
+
+                        A message for the late nights...
+
+                    </p>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 5
+         LOVE QUIZ
+    ========================================= -->
+
+    <section id="quiz"
+             class="section
+                    px-4 sm:px-8
+                    py-8 lg:py-16">
+
+        <div class="max-w-3xl mx-auto">
+
+
+            <div class="text-center mb-10">
+
+                <p class="font-sans
+                          text-xs uppercase
+                          tracking-[.3em]
+                          text-rose-500">
+
+                    A tiny challenge
+
+                </p>
+
+                <h2 class="font-romantic
+                           text-6xl
+                           text-rose-800 mt-3">
+
+                    How Well Do You Know Us? 🎮
+
+                </h2>
+
+            </div>
+
+
+            <div class="glass-card
+                        rounded-[2rem]
+                        p-7 md:p-12">
+
+
+                <div id="quizContent">
+
+                    <p class="font-romantic
+                              text-3xl
+                              text-rose-800
+                              text-center">
+
+                        Let's see how well you remember
+                        our story. ❤️
+
+                    </p>
+
+
+                    <button onclick="startQuiz()"
+                            class="block mx-auto
+                                   mt-8
+                                   bg-rose-700
+                                   text-white
+                                   px-7 py-3
+                                   rounded-full
+                                   font-sans text-sm">
+
+                        Start Quiz
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         SECTION 6
+         PHOTO ALBUM
+    ========================================= -->
+
+    <section id="photos"
+             class="section
+                    px-4 sm:px-8
+                    py-8 lg:py-16">
+
+        <div class="max-w-5xl mx-auto">
+
+
+            <div class="text-center mb-10">
+
+                <p class="font-sans
+                          text-xs uppercase
+                          tracking-[.3em]
+                          text-rose-500">
+
+                    Little pieces of us
+
+                </p>
+
+                <h2 class="font-romantic
+                           text-6xl
+                           text-rose-800 mt-3">
+
+                    Our Photos 📸
+
+                </h2>
+
+                <p class="font-romantic
+                          text-xl
+                          text-slate-500 mt-3">
+
+                   
+
+                </p>
+
+            </div>
+
+
+            <div class="grid
+                        sm:grid-cols-2
+                        lg:grid-cols-3
+                        gap-7">
+
+
+                <!-- PHOTO 1 -->
+
+                <div class="photo-card
+                            bg-white
+                            p-4
+                            shadow-xl
+                            rotate-[-2deg]">
+
+                    <div class="aspect-square
+                                bg-rose-100
+                                flex items-center
+                                justify-center
+                                text-6xl">
+
+                        <img src="The beginning.jpg" alt="">
+
+                    </div>
+
+                    <p class="font-romantic
+                              text-2xl
+                              text-center
+                              text-rose-800
+                              mt-4">
+
+                        Our Beginning
+
+                    </p>
+
+                    <p class="font-sans
+                              text-xs
+                              text-center
+                              text-slate-400
+                              mt-1">
+
+                        
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PHOTO 2 -->
+
+                <div class="photo-card
+                            bg-white
+                            p-4
+                            shadow-xl
+                            rotate-[2deg]">
+
+                            +
+                            
+                    <div class="aspect-square
+                                bg-rose-100
+                                flex items-center
+                                justify-center
+                                text-6xl">
+
+                        <img src="favourite day.jpg" alt="">
+
+                    </div>
+
+                    <p class="font-romantic
+                              text-2xl
+                              text-center
+                              text-rose-800
+                              mt-4">
+
+                        Favorite Day
+
+                    </p>
+
+                    <p class="font-sans
+                              text-xs
+                              text-center
+                              text-slate-400
+                              mt-1">
+
+                        
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PHOTO 3 -->
+
+                <div class="photo-card
+                            bg-white
+                            p-4
+                            shadow-xl
+                            rotate-[-1deg]">
+
+                    <div class="aspect-square
+                                bg-rose-100
+                                flex items-center
+                                justify-center
+                                text-6xl">
+
+                        <img src="Just us.jpg" alt="">
+
+                    </div>
+
+                    <p class="font-romantic
+                              text-2xl
+                              text-center
+                              text-rose-800
+                              mt-4">
+
+                        Just Us
+
+                    </p>
+
+                    <p class="font-sans
+                              text-xs
+                              text-center
+                              text-slate-400
+                              mt-1">
+
+                        
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PHOTO 4 -->
+
+                <div class="photo-card
+                            bg-white
+                            p-4
+                            shadow-xl
+                            rotate-[2deg]">
+
+                    <div class="aspect-square
+                                bg-rose-100
+                                flex items-center
+                                justify-center
+                                text-6xl">
+
+                        <img src="silly moment.jpg" alt="">
+
+                    </div>
+
+                    <p class="font-romantic
+                              text-2xl
+                              text-center
+                              text-rose-800
+                              mt-4">
+
+                        A Silly Moment
+
+                    </p>
+
+                    <p class="font-sans
+                              text-xs
+                              text-center
+                              text-slate-400
+                              mt-1">
+
+                        
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PHOTO 5 -->
+
+                <div class="photo-card
+                            bg-white
+                            p-4
+                            shadow-xl
+                            rotate-[-2deg]">
+
+                    <div class="aspect-square
+                                bg-rose-100
+                                flex items-center
+                                justify-center
+                                text-6xl">
+
+                        <img src="her fsvb memory.jpg" alt="">
+
+                    </div>
+
+                    <p class="font-romantic
+                              text-2xl
+                              text-center
+                              text-rose-800
+                              mt-4">
+
+                        One Of My Favorites
+
+                    </p>
+
+                    <p class="font-sans
+                              text-xs
+                              text-center
+                              text-slate-400
+                              mt-1">
+
+
+                    </p>
+
+                </div>
+
+
+
+               
+
+        </div>
+
+    </section>
+ 
+
+</main>
+
+
+
+<!-- ============================================
+     MEMORY MODAL
+============================================= -->
+
+<div id="memoryModal"
+     class="fixed inset-0 z-[100]
+            bg-black/50 backdrop-blur-sm
+            hidden items-center justify-center
+            p-5">
+
+    <div class="glass-card
+                bg-white
+                rounded-[2rem]
+                max-w-lg
+                w-full
+                p-8 md:p-10
+                text-center">
+
+
+        <div class="text-5xl">
+            🌷
+        </div>
+
+        <img id="modalImage"
+             src=""
+             alt="Memory"
+             class="hidden w-full h-56 object-cover rounded-2xl mt-5 mb-4 shadow-md">
+
+        <h2 id="modalTitle"
+            class="font-romantic
+                   text-4xl
+                   text-rose-800
+                   mt-5">
+
+            Memory
+
+        </h2>
+
+
+        <p id="modalText"
+           class="font-romantic
+                  text-xl
+                  leading-relaxed
+                  text-slate-600
+                  mt-5">
+
+        </p>
+
+
+        <button onclick="closeMemory()"
+                class="mt-7
+                       bg-rose-700
+                       text-white
+                       px-6 py-3
+                       rounded-full
+                       font-sans text-sm">
+
+            Close ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================
+     JAVASCRIPT
+============================================= -->
+
+<script>
+
+
+/* ==========================================
+   NAVIGATION
+=========================================== */
+
+function showSection(sectionId, button) {
+
+
+    /* Hide all sections */
+
+    document
+        .querySelectorAll(".section")
+        .forEach(section => {
+
+            section.classList.remove("active");
+
+        });
+
+
+    /* Show selected section */
+
+    const section =
+        document.getElementById(sectionId);
+
+    section.classList.add("active");
+
+
+    /* Remove active navigation */
+
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    /* Add active navigation */
+
+    if (button) {
+
+        button.classList.add("active");
+
+    }
+
+
+    /* Close mobile menu */
+
+    closeSidebar();
+
+
+    /* Scroll to top */
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* ==========================================
+   MOBILE SIDEBAR
+=========================================== */
+
+const mobileSidebar =
+    document.getElementById(
+        "mobileSidebar"
+    );
+
+const overlay =
+    document.getElementById(
+        "overlay"
+    );
+
+const pinOverlay =
+    document.getElementById(
+        "pinOverlay"
+    );
+
+const pinInput =
+    document.getElementById(
+        "pinInput"
+    );
+
+const pinMessage =
+    document.getElementById(
+        "pinMessage"
+    );
+
+const correctPin = "20042025";
+
+
+function openSidebar() {
+
+    mobileSidebar.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
+
+}
+
+
+function closeSidebar() {
+
+    mobileSidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+
+}
+
+
+function unlockLetter() {
+
+    const enteredPin = pinInput.value.trim();
+
+    if (enteredPin === correctPin) {
+
+        pinOverlay.classList.add("fade-out");
+        pinInput.value = "";
+        pinMessage.textContent = "";
+
+        setTimeout(() => {
+
+            pinOverlay.classList.add("hidden");
+            pinOverlay.classList.remove("fade-out");
+            document.body.classList.remove("overflow-hidden");
+
+            const audio = document.getElementById("bgAudio");
+
+            if (audio) {
+                audio.src = "Ariana_Grande_Feat._Justin_Bieber_-_Stuck_With_You_(mp3.pm).mp3";
+                audio.load();
+                audio.play().catch(() => {
+                    console.warn("Autoplay was blocked until the user interacted with the page.");
+                });
+                updateAudioButton();
+            }
+
+        }, 450);
+
+        return;
+
+    }
+
+    pinInput.classList.add("shake");
+    pinMessage.textContent = "Wrong code. Try again.";
+    pinInput.value = "";
+
+    setTimeout(() => {
+        pinInput.classList.remove("shake");
+    }, 350);
+
+}
+
+
+document.getElementById("pinSubmit").addEventListener("click", unlockLetter);
+pinInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        unlockLetter();
+    }
+});
+
+
+const modal =
+    document.getElementById(
+        "memoryModal"
+    );
+
+const modalTitle =
+    document.getElementById(
+        "modalTitle"
+    );
+
+const modalText =
+    document.getElementById(
+        "modalText"
+    );
+
+const modalImage =
+    document.getElementById(
+        "modalImage"
+    );
+
+
+function openMemory(title, text, imageUrl = "") {
+
+    modalTitle.textContent =
+        title;
+
+    modalText.textContent =
+        text;
+
+    if (imageUrl) {
+
+        modalImage.src = imageUrl;
+        modalImage.classList.remove("hidden");
+
+    } else {
+
+        modalImage.removeAttribute("src");
+        modalImage.classList.add("hidden");
+
+    }
+
+    modal.classList.remove(
+        "hidden"
+    );
+
+    modal.classList.add(
+        "flex"
+    );
+
+}
+
+
+function closeMemory() {
+
+    modal.classList.add(
+        "hidden"
+    );
+
+    modal.classList.remove(
+        "flex"
+    );
+
+}
+
+
+/* Close modal when clicking background */
+
+modal.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === modal
+        ) {
+
+            closeMemory();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   FLOATING HEARTS
+=========================================== */
+
+function makeHearts() {
+
+
+    const heartSymbols = [
+
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "🌷"
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < 30;
+        i++
+    ) {
+
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+
+        heart.className =
+            "heart";
+
+
+        heart.textContent =
+            heartSymbols[
+                Math.floor(
+                    Math.random()
+                    * heartSymbols.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+
+        heart.style.bottom =
+            "-30px";
+
+
+        heart.style.fontSize =
+            15 +
+            Math.random() * 25 +
+            "px";
+
+
+        heart.style.animationDuration =
+            3 +
+            Math.random() * 3 +
+            "s";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            () => heart.remove(),
+            7000
+        );
+
+    }
+
+}
+
+
+
+/* ==========================================
+   LOVE QUIZ
+=========================================== */
+
+
+/*
+    EDIT THESE QUESTIONS.
+
+    Change the question,
+    options and answer.
+
+    IMPORTANT:
+    answer starts at 0.
+
+    Example:
+
+    options: ["Pizza", "Burger", "Pasta"]
+
+    answer: 0
+
+    means Pizza is correct.
+*/
+
+
+const questions = [
+
+
+    {
+
+        question:
+            "Where did we first meet?",
+
+        options: [
+
+            "Park",
+            "School",
+            "Home Affairs",
+            "Groove Lounge"
+
+        ],
+
+        answer: 1
+
+    },
+
+
+    {
+
+        question:
+            "What is my favorite thing about you?",
+
+        options: [
+
+            "Your smile",
+            "Your laugh",
+            "Your kindness",
+            "ALL OF THE ABOVE"
+
+        ],
+
+        answer: 3
+
+    },
+
+
+    {
+
+        question:
+            "What is our special memory?",
+
+        options: [
+
+            "First Date",
+            "Anniversary",
+            "MD",
+            "Birthday"
+
+        ],
+
+        answer: 2
+
+    }
+
+
+];
+
+
+let currentQuestion = 0;
+
+let score = 0;
+
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    showQuestion();
+
+}
+
+
+function showQuestion() {
+
+
+    const quiz =
+        document.getElementById(
+            "quizContent"
+        );
+
+
+    if (
+        currentQuestion >= questions.length
+    ) {
+
+        showQuizResult();
+
+        return;
+
+    }
+
+
+    const q =
+        questions[
+            currentQuestion
+        ];
+
+
+    quiz.innerHTML = `
+
+        <p class="
+            font-sans
+            text-xs
+            uppercase
+            tracking-widest
+            text-rose-500
+            text-center
+            mb-3
+        ">
+
+            Question ${currentQuestion + 1}
+            of ${questions.length}
+
+        </p>
+
+
+        <h3 class="
+            font-romantic
+            text-4xl
+            text-rose-800
+            text-center
+            mb-8
+        ">
+
+            ${q.question}
+
+        </h3>
+
+
+        <div class="space-y-3">
+
+            ${q.options.map(
+                (option, index) => `
+
+                <button
+                    onclick="answerQuestion(${index})"
+                    class="
+                        w-full
+                        text-left
+                        p-4
+                        rounded-xl
+                        border
+                        border-rose-100
+                        bg-white/70
+                        hover:bg-rose-50
+                        hover:border-rose-300
+                        transition
+                        font-sans
+                        text-sm
+                    "
+                >
+
+                    ${option}
+
+                </button>
+
+            `).join("")}
+
+        </div>
+
+    `;
+
+}
+
+
+function answerQuestion(selected) {
+
+
+    if (
+        currentQuestion >= questions.length
+    ) {
+
+        return;
+
+    }
+
+
+    document
+        .querySelectorAll("#quizContent button")
+        .forEach(button => {
+
+            button.disabled = true;
+
+        });
+
+
+    const q =
+        questions[
+            currentQuestion
+        ];
+
+
+    if (
+        selected === q.answer
+    ) {
+
+        score++;
+
+        makeHearts();
+
+    }
+
+
+    currentQuestion++;
+
+
+    if (
+        currentQuestion
+        <
+        questions.length
+    ) {
+
+        setTimeout(
+            showQuestion,
+            400
+        );
+
+    }
+
+    else {
+
+        showQuizResult();
+
+    }
+
+}
+
+
+function showQuizResult() {
+
+
+    const quiz =
+        document.getElementById(
+            "quizContent"
+        );
+
+
+    quiz.innerHTML = `
+
+        <div class="text-center">
+
+            <div class="text-6xl">
+                ❤️
+            </div>
+
+            <h3 class="
+                font-romantic
+                text-5xl
+                text-rose-800
+                mt-5
+            ">
+
+                Quiz Complete!
+
+            </h3>
+
+
+            <p class="
+                font-romantic
+                text-2xl
+                text-slate-600
+                mt-5
+            ">
+
+                You got
+                <strong>${score}</strong>
+                out of
+                <strong>${questions.length}</strong>
+
+            </p>
+
+
+            <p class="
+                font-romantic
+                text-2xl
+                text-rose-700
+                mt-5
+            ">
+
+                ${
+                    score === questions.length
+
+                    ? "Yayy, you know our story! 😊💕"
+
+                    : "No matter the score, you are still my cute babygirl ❤️🌷"
+                }
+
+            </p>
+
+
+            <button
+                onclick="startQuiz()"
+                class="
+                    mt-8
+                    bg-rose-700
+                    text-white
+                    px-7
+                    py-3
+                    rounded-full
+                    font-sans
+                    text-sm
+                "
+            >
+
+                Play Again
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* ==========================================
+   MOBILE NAVIGATION
+=========================================== */
+
+
+/*
+    Creates the same sidebar navigation
+    automatically for mobile.
+*/
+
+const mobileNavigation =
+    document.getElementById(
+        "mobileNavigation"
+    );
+
+
+const mobileItems = [
+
+    ["letter", "💌", "Love Letter"],
+
+    ["story", "🌷", "Our Story"],
+
+    ["garden", "🌹", "Our Garden"],
+
+    ["openwhen", "💌", "Open When..."],
+
+    ["quiz", "🎮", "Our Love Quiz"],
+
+    ["photos", "📸", "Our Photos"]
+
+];
+
+
+mobileItems.forEach(
+    item => {
+
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.className =
+            `
+            nav-button
+            w-full
+            flex
+            items-center
+            gap-4
+            text-left
+            rounded-xl
+            px-4
+            py-3
+            font-sans
+            text-sm
+            `;
+
+
+        button.innerHTML = `
+
+            <span class="text-xl">
+                ${item[1]}
+            </span>
+
+            <span>
+                ${item[2]}
+            </span>
+
+        `;
+
+
+        button.onclick =
+            () => {
+
+                showSection(
+                    item[0],
+                    button
+                );
+
+            };
+
+
+        mobileNavigation.appendChild(
+            button
+        );
+
+    }
+);
+
+
+        /* ==========================================
+           AUDIO / SONG
+        ========================================== */
+
+        function saveSongToStorage(dataUrl) {
+
+            return new Promise((resolve) => {
+
+                try {
+                    localStorage.setItem('loveSong', dataUrl);
+                    resolve(true);
+                } catch (e) {
+                    console.warn('Could not save song to localStorage', e);
+                    resolve(false);
+                }
+
+            });
+
+        }
+
+
+        function loadSavedSong() {
+
+            return new Promise((resolve) => {
+
+                try {
+                    resolve(localStorage.getItem('loveSong') || null);
+                } catch (e) {
+                    console.warn('Could not read saved song from localStorage', e);
+                    resolve(null);
+                }
+
+            });
+
+        }
+
+
+        function loadAudioFile(event) {
+
+            const file = event.target.files[0];
+
+            if (!file) return;
+
+            const reader = new FileReader();
+
+            reader.onload = async () => {
+
+                const audio = document.getElementById('bgAudio');
+
+                if (!audio) return;
+
+                audio.src = reader.result;
+                audio.load();
+
+                await saveSongToStorage(reader.result);
+
+                audio.play().catch(() => {
+                    console.warn('Autoplay was blocked until the user interacts with the page.');
+                });
+
+                updateAudioButton();
+
+            };
+
+            reader.readAsDataURL(file);
+
+        }
+
+
+        function toggleAudio() {
+
+            const audio = document.getElementById('bgAudio');
+
+            if (!audio || !audio.src) {
+
+                alert('No song loaded. Click "Upload Song" to pick an audio file.');
+
+                return;
+
+            }
+
+            if (audio.paused) audio.play(); else audio.pause();
+
+            updateAudioButton();
+
+        }
+
+
+        function updateAudioButton() {
+
+            const audio = document.getElementById('bgAudio');
+
+            const btn = document.getElementById('audioBtn');
+
+            if (!btn || !audio) return;
+
+            btn.textContent = audio.paused ? 'Play Song 🎵' : 'Pause Song ⏸️';
+
+        }
+
+
+        window.addEventListener('load', async () => {
+
+            const audio = document.getElementById('bgAudio');
+            const embeddedSong = 'Ariana_Grande_Feat._Justin_Bieber_-_Stuck_With_You_(mp3.pm).mp3';
+            const saved = await loadSavedSong();
+
+            if (audio) {
+                audio.loop = true;
+                audio.src = saved || embeddedSong;
+                audio.load();
+                audio.addEventListener('play', updateAudioButton);
+                audio.addEventListener('pause', updateAudioButton);
+            }
+
+            updateAudioButton();
+
+            const letter = document.getElementById('letter');
+            if (letter) {
+                letter.classList.add('fade-in-letter');
+                window.scrollTo({ top: letter.offsetTop - 20, behavior: 'smooth' });
+            }
+
+            pinInput.focus();
+            document.body.classList.add('overflow-hidden');
+
+        });
+
+
+
+/* ==========================================
+   ESCAPE KEY
+=========================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeSidebar();
+
+            closeMemory();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
